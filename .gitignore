@@ -41,3 +41,6 @@ xc2c_warp
 /javr/*.exe
 /javr/*.o
 javr/Makefile
+
+# Ignore Homebrew bundle file, since it can't be used to reinstall specific versions anyway.
+/Brewfile.lock.json

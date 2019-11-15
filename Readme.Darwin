@@ -12,26 +12,19 @@ https://developer.apple.com/xcode/download/
 downloadable from here
 http://brew.sh/
 
-- CMake
-just type in the terminal
-brew install cmake
-
-- libusb
-just type in the terminal
-brew install libusb-compat
-
-- libftdi
-just type in the terminal
-brew install libftdi
-
 2. Build sequence
 following the original README
 
 - checkout source code using SVN:
 git clone https://github.com/bunkyr/xc3sprog
 
-- change folder inside xc3sprog and create subfolder build
+- change folder inside xc3sprog
 cd xc3sprog
+
+- install dependencies
+brew bundle
+
+- create subfolder build
 mkdir build
 
 - change folder inside build and execute cmake (double dots after the 'cmake' is important)
@@ -41,9 +34,6 @@ cmake ..
 - once cmake discover all the components necessary for the build
 (require at least libusb and libftdi - proceed with the classical make)
 make
-
-- if the error happened (usually cmake coudn't find libftdi) it means file Findlibftdi.cmake hasn't been patched yet
-(the hint is simple, cmake is looking for ftdi yet it should look for the ftdi1 except for the header)
 
 3. Execution environment
 - useful tool inside the project is detectchain to verify if FTDI actually has any chip connected to JTAG pins
