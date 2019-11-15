@@ -12,17 +12,13 @@ https://developer.apple.com/xcode/download/
 downloadable from here
 http://brew.sh/
 
-- SVN
-just type in the terminal
-brew install svn
-
 - CMake
 just type in the terminal
 brew install cmake
 
 - libusb
 just type in the terminal
-brew install libusb
+brew install libusb-compat
 
 - libftdi
 just type in the terminal
@@ -32,7 +28,7 @@ brew install libftdi
 following the original README
 
 - checkout source code using SVN:
-svn co https://xc3sprog.svn.sourceforge.net/svnroot/xc3sprog/trunk xc3sprog
+git clone https://github.com/bunkyr/xc3sprog
 
 - change folder inside xc3sprog and create subfolder build
 cd xc3sprog
@@ -52,11 +48,3 @@ make
 3. Execution environment
 - useful tool inside the project is detectchain to verify if FTDI actually has any chip connected to JTAG pins
 ./detectchain -c ftdi -d /dev/tty.usbserial-fd12
-
-- resolving conflict with the original AppleUSBFTDI driver (aka KEXT:)
-at first trial to connect to the peripherals the error about unable to acquire port will show up
-unload original KEXT from the system and proceed again with the commands no more problems to happend
-
-sudo kextunload -b com.apple.driver.AppleUSBFTDI
-
-
